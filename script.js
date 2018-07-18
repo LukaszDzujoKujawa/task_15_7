@@ -22,17 +22,16 @@ class StopWatch extends React.Component {
 			}
 		});
 	}
-	a
 	pad0 = (value) => {
 		let result = value.toString();
 		const resultLength = result.length;
-		if (resultLength <2){
+		if (resultLength < 2){
 			result = 0 + result;
 		}
 		return result;
 	}
 	
-	format = () =>{
+	format = () => {
 		let minutes = this.state.times.minutes;
 		let seconds = this.state.times.seconds;
 		let miliseconds = this.state.times.miliseconds;
