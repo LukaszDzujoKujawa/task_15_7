@@ -22,15 +22,7 @@ class StopWatch extends React.Component {
 			}
 		});
 	}
-	pad0 = (value) => {
-		let result = value.toString();
-		const resultLength = result.length;
-		if (resultLength < 2){
-			result = 0 + result;
-		}
-		return result;
-	}
-	
+
 	format = () => {
 		let minutes = this.state.times.minutes;
 		let seconds = this.state.times.seconds;
@@ -39,7 +31,7 @@ class StopWatch extends React.Component {
 	}
 	
 	start = () =>{
-		if(!this.state.running){
+		if (!this.state.running){
 			this.state.running = 'true';
 			this.watch = setInterval(() => this.step(), 10);
 		}
@@ -59,7 +51,7 @@ class StopWatch extends React.Component {
 			}	
 		});
 		
-		if(this.state.times.miliseconds >= 100){
+		if (this.state.times.miliseconds >= 100){
 			this.setState({
 				times: {
 					minutes: this.state.times.minutes,
@@ -69,7 +61,7 @@ class StopWatch extends React.Component {
 			});
 		}
 		
-		if(this.state.times.seconds >= 60){
+		if (this.state.times.seconds >= 60){
 			this.setState({
 				times: {
 					minutes: this.state.times.minutes +1,
@@ -169,5 +161,14 @@ class Results extends React.Component{
 	} 
 }
 var element = React.createElement(StopWatch);
+
+	function pad0 = (value) => {
+		let result = value.toString();
+		const resultLength = result.length;
+		if (resultLength < 2){
+			result = 0 + result;
+		}
+		return result;
+	}
 
 ReactDOM.render(element, document.getElementById('app'));
